@@ -193,9 +193,22 @@
                                 <span>서 현 기 · 조 순 미</span>&nbsp;의&nbsp;&nbsp;장녀&nbsp;&nbsp;<span>서 나 래</span>
 
                                 <br><br><h4 class="menu-header">마음 전하는 곳</h4>
-                                <br> 신랑측 : 윤기헌 신한 110-505-144060   
-                                <br> 신부측 : 서나래 국민 223301-04-372628
-                            </p>
+                                <br>신부측 : 서현기
+
+                                <div class="section" id="map_row">      
+                                    <style>
+                                    .bank_txt {
+                                        cursor: pointer;
+                                    }
+                                    .bank_txt_num {
+                                        margin-top: 6px;
+                                    }
+                                    </style>
+                                    <div class="bank_txt">
+                                        <div class="bank_txt_com">농협 351-0964-5324-03</div>
+                                    </div>
+                                </div>
+                                    </p>
                             <div class="heart-divider">
                                 <span class="grey-line"></span>
                                 <i class="de-icon-heart pink-heart"></i>
@@ -450,5 +463,27 @@
     <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-90723635-1', 'auto'); ga('send', 'pageview');</script>
     <script src="js/jquery.scrolldepth.min.js"></script>
     <script>jQuery(function () { jQuery.scrollDepth(); });</script>
+    <script>
+        $(function () {
+            $('.bank_txt').on('click', function () {
+                var bank_txt = $('.bank_txt_com', this).text()
+                if (bank_txt.length > 1) {
+                    clipboard_copy(bank_txt)
+                    alert(bank_txt + ' 복사되었습니다')
+                }
+            })
+        })    
+
+        function clipboard_copy(str) {
+            var tmpTextarea = document.createElement('textarea')
+            tmpTextarea.value = str
+            document.body.appendChild(tmpTextarea)
+            tmpTextarea.select()
+            tmpTextarea.setSelectionRange(0, 9999)
+            document.execCommand('copy')
+            document.body.removeChild(tmpTextarea)
+        }
+    </script>
+        
 </body>
 </html>
